@@ -10,9 +10,17 @@ class Ball(Turtle):
     self.shape("circle")
     self.color("white")
     self.penup()
-    self.goto(0, 0)
+    self.x_move = rand_num
+    self.y_move = rand_num
 
   def move(self):
-    new_x = self.xcor() + rand_num  
-    new_y = self.ycor() + rand_num
+    new_x = self.xcor() + self.x_move  
+    new_y = self.ycor() + self.y_move
     self.goto(new_x, new_y)
+
+  def bounce(self):
+    self.y_move *= -1
+
+  def hit(self):
+    self.x_move *= -1
+    
